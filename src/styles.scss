@@ -1,0 +1,79 @@
+$cyan: #00b8e6;
+$ink: #111;
+$gray: #e4e4e8;
+$bp: 900px;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', 'Pretendard', sans-serif; color: $ink; background: #fff; line-height: 1.5; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; &:hover { color: $cyan; } }
+:focus-visible { outline: 2px solid $cyan; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.wrap {width: cover; max-width: 1440px; margin: 100px auto; padding: 0 24px; }
+.section { padding: 50px 0; height: fit-content;}
+h2 { font-size: 20px; font-weight: 800; }
+h3 { font-size: 15px; font-weight: 800; margin: 20px 0 6px; }
+
+.skills__items{margin-right: 10px; display: inline-block; width: fit-content;}
+.skills__items svg{display: inline-block; width: 20px; height: 20px; object-fit: scale-down; vertical-align: bottom; margin-right: 2px; }
+
+.header { position: sticky; top: 0; z-index: 10; background: #fff; }
+.header__nav { display: flex; justify-content: center; align-items: center; gap: 32px; padding: 12px; font-weight: 600; font-size: 14px; }
+.header__logo { font-weight: 800; letter-spacing: 2px; border: 2px solid $ink; padding: 2px 10px; }
+
+.hero__inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+.hero__title { font-size: clamp(48px, 9vw, 96px); line-height: 0.95; font-weight: 800; color: $cyan; max-width: 640px; }
+.hero__info { font-size: 13px; }
+.hero__role { font-size: 11px; color: #777; margin-bottom: 8px; }
+.hero__hello { display: flex; flex-direction: row; align-items: center; gap: 10px; height: fit-content; font-weight: 800; font-size: 24px; margin-bottom: 10px; 
+  span{color: $cyan;}
+}
+.hero__links { div { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; } dt { font-weight: 800; } }
+.qrcode__box{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border-radius: 5px; padding: 5px; background-color: black; text-align: center;
+  p{ color: white; font-size: 14px; font-weight: normal;
+      svg{vertical-align: middle; max-height: 1rem; width: fit-content;
+          path{ fill: white; }
+      }
+  }
+}
+.qrcode__img{ height: 60px; width: 60px;
+    img{ width: 100%; height: 100%; object-fit: fill; border-radius: 5px; }
+}
+
+
+.works__head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+
+.filter { font: inherit; font-size: 13px; padding: 2px 14px; border: 2px solid $ink; border-radius: 999px; background: #fff; cursor: pointer; text-transform: uppercase;
+  &__group { display: flex; flex-wrap: nowrap; flex-direction: row; align-items: center; gap: 10px;  }
+  &.is-active { border-color: $cyan; border-width: 2px; background: #d9f6fd; } }
+.works__lists {
+  column-count: 4; column-gap: 12px; height: 540px; overflow-y: auto; padding-right: 12px;
+  scrollbar-width: thin; scrollbar-color: $cyan transparent;
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-thumb { background: $cyan; border-radius: 4px; }
+}
+.card { break-inside: avoid; margin-bottom: 12px; border-radius: 8px; overflow: hidden; background-color: #555; background-size: cover; height: 250px;}
+.card--dark { color: #fff; padding: 20px; }
+.card__title { font-weight: 600; margin-bottom: 8px; }
+.card__tags { font-size: 11px; opacity: 0.8; }
+
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.about__lead { font-size: 18px; font-weight: 800; margin: 20px 0; }
+.about__detail { font-size: 13px; }
+.profile { border: 3px solid $cyan; border-radius: 8px; padding: 16px; }
+.profile__top { display: flex; gap: 16px; align-items: center; }
+.profile__avatar { width: 96px; height: 96px; border-radius: 50%; background: $ink; flex: none; }
+.profile__meta { background: $gray; padding: 10px 14px; border-radius: 4px; font-size: 13px; flex: 1; }
+.profile__intro { background: $gray; padding: 12px 14px; border-radius: 4px; margin-top: 12px; font-size: 12px; }
+.skills li { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid $gray; }
+.skills__cat { width: 90px; flex: none; color: #555; }
+.history li { font-size: 12px; }
+
+.footer { text-align: center; font-size: 12px; padding: 32px 0; }
+
+@media (max-width: $bp) {
+  .gallery { column-count: 2; }
+  .about { grid-template-columns: 1fr; }
+}
