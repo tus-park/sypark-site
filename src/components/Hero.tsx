@@ -11,12 +11,12 @@ export default function Hero() {
   return (
     <section id="top" className="section hero">
       <div className="wrap hero__inner">
-        <h1 className="hero__title">WHERE DESIGN MEETS MARKUP.</h1>
+        <h2 className="hero__title">WHERE DESIGN MEETS MARKUP.</h2>
         <div className="hero__info">
           <p className="hero__role">WEB DESIGN &amp; PUBLISHER <br/>| UI/UX <br/>| MARKUP</p>
           <div className="hero__hello">
             <div className="qrcode__box">
-              <p><Icons.TalkBubble /> Talk QR</p>
+              <p><Icons.TalkBubble />Talk QR</p>
               <div className="qrcode__img">
                 <img className='qrcode' src={QRcode} alt="Open talk QR code"/>
               </div>

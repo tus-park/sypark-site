@@ -3,6 +3,8 @@ import { filters } from '../data';
 import type { Filter } from '../types/types';
 import { supabase } from '../lib/supabaseClient';
 import type { Work } from '../types/types';
+import WorkModal from './WorkModal';
+
 
 export async function getWorks() : Promise<Work[]> {
   const { data, error } = await supabase
@@ -11,14 +13,27 @@ export async function getWorks() : Promise<Work[]> {
   if (error) throw error;
   return data ?? [];
 }
-
+export function toTagList(tags: unknown): string[] {
+  if (Array.isArray(tags)) return tags.map(String);
+  if (typeof tags === 'string') {
+    return tags.split(',').map((t) => t.trim()).filter(Boolean);
+  }
+  return [];
+}
 
 export default function Works() {
   const [works, setWorks] = useState<Work[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Filter>('all');
   const list = filter === 'all' ? works : works.filter((w) => w.category === filter);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const index = list.findIndex((w) => w.id === selectedId);
+  const move = (step: number) => setSelectedId(list[(index + step + list.length) % list.length].id);
+  const openModal = (id: number) => setSelectedId(id);
+  const closeModal = () => setSelectedId(null);
 
+  // 렌더링
   useEffect(() => {
     getWorks().then(setWorks).finally(() => setLoading(false));
   }, []);
@@ -27,7 +42,7 @@ export default function Works() {
     <section id="works" className="section">
       <div className="wrap">
         <div className="works__head">
-          <h2>WORKS</h2>
+          <h3>WORKS 🗂</h3>
           <div className="filter__group" role="group" aria-label="작업물 필터">
             {filters.map((f) => (
               <button
@@ -48,12 +63,27 @@ export default function Works() {
               key={w.id}
               className={`card`}
               style={{ backgroundImage: `url(${w.thumbnail})`, height: w.height }}
+              onMouseEnter={() => setHoveredId(w.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              onClick={() => openModal(w.id)}
             >
-              <p className="card__title">{w.title}</p>
+              {hoveredId === w.id && (
+                <div className="card__overlay">
+                  <p className="card__title">{w.title}</p>
+                  <p className="card__tags">{toTagList(w.tags).map((t) => `#${t}`).join(' ')}</p>
+                  <p className='card__more'>＋View</p>
+                </div>
+              )}
             </li>
           ))}
         </ul>
       </div>
+      <WorkModal
+        work={index >= 0 ? list[index] : null}
+        onClose={() => setSelectedId(null)}
+        onPrev={() => move(-1)}
+        onNext={() => move(1)}
+      />
     </section>
-  );
+);
 }
