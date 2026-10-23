@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { Work } from "../types/types";
+import type { Work } from "../types/workData";
 
 interface Props {
     work : Work | null;
@@ -27,10 +27,44 @@ export default function WorkModal({ work, onClose, onPrev, onNext} : Props) {
         >
             {work && (
                 <div className="modal__body">
-                    <h3>{work.title}</h3>
-                    <button type="button" onClick={onPrev}>이전</button>
-                    <button type="button" onClick={onNext}>다음</button>
-                    <button type="button" onClick={onClose}>닫기</button>
+                    <div className="modal__head"><h4>{work.title}</h4></div>
+                    <div className="modal__content">
+                        <div className="detail__info">
+                            <div className="detail__thumb"> <img src={work.thumbnail} /> </div>
+                            <dl className="detail__sub">
+                                <dt>Period :</dt>
+                                <dd> {work.start_date} - {work.end_date}</dd>
+                                <dt>Parts :</dt>
+                                <dd> {work.part} </dd>
+                                <dt>Description :</dt>
+                                <dd> {work.description} </dd>
+                            </dl>
+                        </div>
+                        {/* 기본 정보 */}
+                        
+                        <div className="screenshot">
+                            <h5>Screenshot</h5>
+                            <p className="sub__text">  {/* 설명글 - 있으면 보이고 없으면 안보임 */}  </p>
+                            <div className="screen__image">
+                                <p> {/* label */} </p>
+                            </div>
+                        </div>
+                        {/* 스크린샷 - 있으면 보이고 없으면 안보임 */}
+                        
+                        <div className="additional">
+                            <h5>Additional</h5>
+                            <p className="sub__text">  {/* 설명글 - 있으면 보이고 없으면 안보임 */}  </p>
+                            <div className="screen__image">
+                                <p> {/* label */} </p>
+                            </div>
+                        </div>
+                        {/* 부가 콘텐츠 - 있으면 보이고 없으면 안보임 */}
+
+
+                    </div>
+                    <button className="modal__btn next" type="button" onClick={onNext}>Next <span>→</span></button>
+                    <button className="modal__btn prev" type="button" onClick={onPrev}><span>←</span> Prev</button>
+                    <button className="modal__btn close" type="button" onClick={onClose}>close <span>✕</span></button>
                 </div>
             )}
         </dialog>

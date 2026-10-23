@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
-import { filters } from '../data';
-import type { Filter } from '../types/types';
+import type { Work, Filter } from '../types/workData';
 import { supabase } from '../lib/supabaseClient';
-import type { Work } from '../types/types';
 import WorkModal from './WorkModal';
 
 
 export async function getWorks() : Promise<Work[]> {
   const { data, error } = await supabase
   .from('works')
-  .select('*');
+  .select('*')
+  .order('id', { ascending: false }); // id 순서
   if (error) throw error;
   return data ?? [];
 }
+// 데이터베이스 가져오기
+
 export function toTagList(tags: unknown): string[] {
   if (Array.isArray(tags)) return tags.map(String);
   if (typeof tags === 'string') {
@@ -20,6 +21,7 @@ export function toTagList(tags: unknown): string[] {
   }
   return [];
 }
+// 태그 리스트
 
 export default function Works() {
   const [works, setWorks] = useState<Work[]>([]);
@@ -32,6 +34,7 @@ export default function Works() {
   const move = (step: number) => setSelectedId(list[(index + step + list.length) % list.length].id);
   const openModal = (id: number) => setSelectedId(id);
   const closeModal = () => setSelectedId(null);
+  const filters = ['all', ...new Set(works.map((p) => p.category))];
 
   // 렌더링
   useEffect(() => {

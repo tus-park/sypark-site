@@ -23,8 +23,7 @@ a { color: inherit; text-decoration: none; &:hover { color: $cyan; } }
 h3{ font-size: $fs-xxlg;}
 
 .section { padding: 50px 0; height: fit-content; margin: 100px auto; max-width: 1440px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
-.wrap {width: 100%;  }
-
+.wrap { width: 100%;}
 
 // header start
 .header { position: sticky; top: 0; z-index: 10; background: #fff; }
@@ -63,12 +62,12 @@ h3{ font-size: $fs-xxlg;}
 .filter { font: inherit; font-size: $fs-lg; padding: 0 20px; border: 2px solid $ink; border-radius: 999px; background: #fff; cursor: pointer; text-transform: uppercase;
   &__group { display: flex; flex-wrap: nowrap; flex-direction: row; align-items: center; gap: 10px;  }
   &.is-active { border-color: $cyan; border-width: 2px; background: #d9f6fd; } }
-.works__lists { column-count: 4; column-gap: 12px; height: 540px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: $cyan transparent;
+.works__lists { column-count: 5; height:auto; max-height: 700px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: $cyan transparent;
   &::-webkit-scrollbar { width: 4px; }
   &::-webkit-scrollbar-thumb { background: $cyan; border-radius: 4px; }
   li{ cursor: pointer;}
 }
-.card { break-inside: avoid; margin-bottom: 12px; border-radius: 8px; overflow: hidden; background-color: #555; background-size: cover; height: 250px;}
+.card { break-inside: avoid; margin-bottom: 10px; border-radius: 8px; overflow: hidden; background-color: #555; background-size: cover; height: 250px;}
 .card--dark { color: #fff; padding: 20px; }
 .card__overlay{
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 5%; height: 100%; background: linear-gradient(rgba(0, 184, 230, 0.8), rgba(87, 82, 162, 0.8)); color: white;
@@ -76,6 +75,36 @@ h3{ font-size: $fs-xxlg;}
   .card__tags { font-weight: $fw-lt; }
   .card__more{ width: fit-content; padding: 0 5px; background-color: white; border-radius: 50px; font-weight: $fw-b; color: black; text-align: center;}
 }
+
+// works modal start
+.modal{
+  width: 90vw; height: 90vh; border: 0; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  &::backdrop{ background-color: rgba(0, 184, 230, 0.3);} 
+}
+.modal__head{ width: 100%; text-align: center; font-size: $fs-xlg; padding: 50px;}
+.modal__body{ position: relative; height: 100%; width: 100%;}
+.modal__content{ width: 80%; margin: 0 auto; padding: 0 5vw; 
+  h5{font-size: $fs-xlg; text-transform: uppercase; text-align: center; margin-bottom: 20px;}
+}
+.detail__info{ display: flex; flex-direction: row; gap: 50px; align-items: center; }
+.detail__thumb{ 
+  width: 100%; height: auto; overflow: hidden;
+  img{width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+}
+.detail__sub{ width: 100%; height: 100%; 
+  dt{ font-weight: $fw-b; font-size: $fs-lg; margin-bottom: 10px;}
+  dd{ margin-bottom: 20px;}
+}
+.screen__image{padding: 50px 0;}
+.modal__btn{ 
+  background: none; border: none; font-size: $fs-lg; font-family: inherit; cursor: pointer; 
+  &:hover{ font-weight: $fw-b; color: $cyan;}
+  span{ color:$cyan }
+}
+.next{position: absolute; top:50%; right: 20px; transform: translateY(-50%); }
+.prev{position: absolute; top:50%; left: 20px; transform: translateY(-50%); }
+.close{position: absolute; top:10px; right: 20px; }
+// works modal end
 // works end
 
 .about { display: flex; flex-direction: row; gap: 50px; justify-content: center; align-items: flex-start; }
@@ -104,14 +133,25 @@ h3{ font-size: $fs-xxlg;}
 .footer { height: 60px; display: flex; justify-content: center; align-items: center;}
 
 @media (max-width: $bp) {
+
+  body{ font-size: 12px; }
   h3{margin: 0;}
-  .section{margin: 0 auto; padding: 0 5%;}
+  .section{margin: 0 auto; padding: 5vh 5%;}
   .hero__inner {flex-direction: column; align-items: center; .hero__title{width: fit-content;}}
-  .works__lists { column-count: 2; }
-  .card{ height: fit-content; padding: 5%;}
+  .hero__info{width: 100%;}
+  // hero end
+  // works start
+  .works__lists { column-count: 3; }
+  .card{ height: 150px; padding: 5%;}
+  // works end
+  // about start
   .about { flex-direction: column; }
   .profile__top{ flex-direction: column; gap: 20px; margin-bottom: 20px;}
   .profile__avatar{ width: 30%; height: fit-content; }
   .profile__meta{ width: 100%;}
   .about__detail{ gap: 20px;}
+  // about end
+
+  //modal start
+  .modal__head{ padding: 30px 5%;}
 }

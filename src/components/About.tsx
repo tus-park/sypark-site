@@ -1,4 +1,4 @@
-import { ability, skills, history } from '../data';
+import { ability, skills } from '../data';
 import { Icons } from '../assets/Icons';
 import Avatar from '../assets/avatar.svg';
 
@@ -62,7 +62,7 @@ export default function About() {
                         return null;
                       }
                       return(
-                          <span className="skills__items">
+                          <span className="skills__items" key={item}>
                             <Icon aria-hidden="true"/>
                             {item}
                           </span>
