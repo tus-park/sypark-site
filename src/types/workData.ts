@@ -6,15 +6,19 @@ export interface Work {
   category: WorkCategory;
   tags: string[];
   title: string;
+  thumbnail: string;
   description: string;
   start_date: number;
   end_date: number;
   part: string;
   skill: string;
-  thumbnail: string;
-  images: string[];
-  color: string; 
-  height: number; 
-  dark?: boolean; // 마우스 호버 효과 임시 값
+  screenshot: (string | MediaItem)[] | null;
+  screenshot_info?: string | null;
+  add_images: string[] | null;
+  additional?: string | null; 
 }
 
+export interface MediaItem {
+  url: string;
+  label?: string;
+}

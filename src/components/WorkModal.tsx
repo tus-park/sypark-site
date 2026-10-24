@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { Work } from "../types/workData";
+import MediaSection from "./MediaSection";
 
 interface Props {
     work : Work | null;
@@ -42,25 +43,20 @@ export default function WorkModal({ work, onClose, onPrev, onNext} : Props) {
                         </div>
                         {/* 기본 정보 */}
                         
-                        <div className="screenshot">
-                            <h5>Screenshot</h5>
-                            <p className="sub__text">  {/* 설명글 - 있으면 보이고 없으면 안보임 */}  </p>
-                            <div className="screen__image">
-                                <p> {/* label */} </p>
-                            </div>
-                        </div>
-                        {/* 스크린샷 - 있으면 보이고 없으면 안보임 */}
                         
-                        <div className="additional">
-                            <h5>Additional</h5>
-                            <p className="sub__text">  {/* 설명글 - 있으면 보이고 없으면 안보임 */}  </p>
-                            <div className="screen__image">
-                                <p> {/* label */} </p>
-                            </div>
-                        </div>
-                        {/* 부가 콘텐츠 - 있으면 보이고 없으면 안보임 */}
-
-
+                            <MediaSection
+                            className="screenshot"
+                            title="Screenshot"
+                            description={work.screenshot_info}
+                            items={work.screenshot}
+                            />
+                            <MediaSection
+                            title="Additional"
+                            className="additional"
+                            description={work.additional}
+                            items={work.add_images}
+                            />
+                        
                     </div>
                     <button className="modal__btn next" type="button" onClick={onNext}>Next <span>→</span></button>
                     <button className="modal__btn prev" type="button" onClick={onPrev}><span>←</span> Prev</button>

@@ -65,7 +65,7 @@ export default function Works() {
             <li
               key={w.id}
               className={`card`}
-              style={{ backgroundImage: `url(${w.thumbnail})`, height: w.height }}
+              style={{ backgroundImage: `url(${w.thumbnail})` }}
               onMouseEnter={() => setHoveredId(w.id)}
               onMouseLeave={() => setHoveredId(null)}
               onClick={() => openModal(w.id)}
