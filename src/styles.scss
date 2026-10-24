@@ -134,17 +134,18 @@ h3{ font-size: $fs-xxlg;}
 .about__detail {display: flex; flex-direction: column; gap: 50px; }
 .profile { border: 5px solid $cyan; border-radius: 10px; padding: 20px; }
 .profile__top { display: flex; gap: 50px; align-items: center; margin-bottom: 50px;}
-.profile__avatar { width: 200px; height: 200px; img{width: 100%; }}
-.profile__meta { background: $gray; padding: 10px; border-radius: 10px; flex: 1; 
-  dl{ display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 5px;
+.profile__avatar { width: 150px; height: 150px; img{width: 100%; }}
+.profile__meta { background: $gray; padding: 10px; border-radius: 10px; flex: 1; white-space: nowrap;
+  dl{ display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 5px;
     dt{ margin-bottom: 0;}
   }
 }
 .profile__intro { background: $gray; padding: 10px; border-radius: 10px; margin-top: 12px; }
 
-.about__skills dd { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px dotted $gray; 
+.about__skills dd { display: flex; flex-wrap: wrap; gap: 10px; padding: 6px 0; border-bottom: 1px dotted $gray; 
   &:last-child{ border-bottom: none;}
 }
+.skills_list{ width: calc(100% - 100px); min-width: 360px;}
 .skills__items{margin-right: 10px; display: inline-block; width: fit-content;}
 .skills__items svg{display: inline-block; width: 20px; height: 20px; object-fit: scale-down; vertical-align: bottom; margin-right: 2px; }
 .skills__cat { width: 90px; flex: none; color: #555; }
@@ -166,10 +167,12 @@ h3{ font-size: $fs-xxlg;}
   // works end
   // about start
   .about { flex-direction: column; }
+  .introduction { flex-direction: column; width: 100%; }
+  .profile{width: 100%;}
   .profile__top{ flex-direction: column; gap: 20px; margin-bottom: 20px;}
   .profile__avatar{ width: 30%; height: fit-content; }
   .profile__meta{ width: 100%;}
-  .about__detail{ gap: 20px;}
+  .about__detail{ width: 100%; gap: 20px; }
   // about end
 
   //modal start

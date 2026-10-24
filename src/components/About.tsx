@@ -12,7 +12,7 @@ export default function About() {
         {/* profile start */}
         <div className='about__head'><h3>ABOUT 🤔</h3></div>
         <div className='about'>
-          <div className='about__bio'>
+          <div className='introduction'>
             <p className="about__lead">디자인과 마크업으로 아이디어를 실현하는 <br/> <span>&lsquo;박시연&rsquo;</span>입니다.</p>
             <div className="profile">
               <div className="profile__top">
@@ -54,7 +54,7 @@ export default function About() {
               {skills.map((g) => (
                   <dd key={g.category}>
                     <span className="skills__cat">({g.category})</span>
-                    <div>
+                    <div className='skills_list'>
                     {g.items.map((item) => {
                       const Icon = Icons[item as IconName];
                       if (!Icon) {
