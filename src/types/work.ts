@@ -1,5 +1,6 @@
 export type WorkCategory = string;
 export type Filter = string;
+export type add_images = 'image' | 'video';
 
 export interface Work {
   id: number;
@@ -8,14 +9,16 @@ export interface Work {
   title: string;
   thumbnail: string;
   description: string;
-  start_date: number;
-  end_date: number;
+  start_date: string;
+  end_date: string;
   part: string;
   skill: string;
   screenshot: (string | MediaItem)[] | null;
-  screenshot_info?: string | null;
-  add_images: string[] | null;
-  additional?: string | null; 
+  screenshot_subscript?: string | null;
+  additional: string[] | null;
+  additional_subscript?: string | null; 
+  artwork: string[] | null;
+  artwork_subscript?: string | null; 
 }
 
 export interface MediaItem {

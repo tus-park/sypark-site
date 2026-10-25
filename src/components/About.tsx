@@ -1,4 +1,4 @@
-import { ability, skills } from '../data';
+import { ability, skills } from '../data/aboutData';
 import { Icons } from '../assets/Icons';
 import Avatar from '../assets/avatar.svg';
 

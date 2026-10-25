@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
-import type { Work } from "../types/workData";
+import type { Work } from "../types/work";
 import MediaSection from "./MediaSection";
+import { formatYearMonth } from "../utills/formatDate";
 
 interface Props {
     work : Work | null;
@@ -34,7 +35,7 @@ export default function WorkModal({ work, onClose, onPrev, onNext} : Props) {
                             <div className="detail__thumb"> <img src={work.thumbnail} /> </div>
                             <dl className="detail__sub">
                                 <dt>Period :</dt>
-                                <dd> {work.start_date} - {work.end_date}</dd>
+                                <dd> {formatYearMonth(work.start_date)} ~ {formatYearMonth(work.end_date)}</dd>
                                 <dt>Parts :</dt>
                                 <dd> {work.part} </dd>
                                 <dt>Description :</dt>
@@ -43,18 +44,23 @@ export default function WorkModal({ work, onClose, onPrev, onNext} : Props) {
                         </div>
                         {/* 기본 정보 */}
                         
-                        
                             <MediaSection
                             className="screenshot"
                             title="Screenshot"
-                            description={work.screenshot_info}
+                            description={work.screenshot_subscript}
                             items={work.screenshot}
                             />
                             <MediaSection
                             title="Additional"
                             className="additional"
-                            description={work.additional}
-                            items={work.add_images}
+                            description={work.additional_subscript}
+                            items={work.additional}
+                            />
+                            <MediaSection
+                            title="Artwork"
+                            className="artwork"
+                            description={work.artwork_subscript}
+                            items={work.artwork}
                             />
                         
                     </div>

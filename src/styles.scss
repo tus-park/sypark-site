@@ -43,7 +43,11 @@ h3{ font-size: $fs-xxlg;}
 .hero__hello { display: flex; flex-direction: row; align-items: center; gap: 10px; width: fit-content; height: fit-content; font-weight: bold; font-size: $fs-xlg;
   p{width: fit-content; white-space: nowrap; span{color: $cyan;} }
 }
-.hero__links { div { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; } dt { font-weight: $fw-b; } }
+.hero__links { 
+  div { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; } 
+  dt { font-weight: $fw-b; } 
+  dd svg{ vertical-align: middle; margin-right: 5px;}
+}
 .qrcode__box{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border-radius: 5px; padding: 5px; background-color: black; text-align: center;
   p{ color: white; white-space: nowrap; font-size: $fs-s; font-weight: $fw-nm;
       svg{vertical-align: middle; max-height: 1rem; height: 14px;
@@ -62,12 +66,12 @@ h3{ font-size: $fs-xxlg;}
 .filter { font: inherit; font-size: $fs-lg; padding: 0 20px; border: 2px solid $ink; border-radius: 999px; background: #fff; cursor: pointer; text-transform: uppercase;
   &__group { display: flex; flex-wrap: nowrap; flex-direction: row; align-items: center; gap: 10px;  }
   &.is-active { border-color: $cyan; border-width: 2px; background: #d9f6fd; } }
-.works__lists { column-count: 5; height: 700px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: $cyan transparent;
+.works__lists { column-count: 4; height: 700px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: $cyan transparent;
   &::-webkit-scrollbar { width: 4px; }
   &::-webkit-scrollbar-thumb { background: $cyan; border-radius: 4px; }
   li{ cursor: pointer;}
 }
-.card { break-inside: avoid; margin-bottom: 10px; border-radius: 8px; overflow: hidden; background-color: #555; background-size: cover; height: 250px;}
+.card { break-inside: avoid; margin-bottom: 10px; border-radius: 8px; overflow: hidden; background-color: #555; background-size: cover; background-position: center; height: 250px;}
 .card--dark { color: #fff; padding: 20px; }
 .card__overlay{
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 5%; height: 100%; background: linear-gradient(rgba(0, 184, 230, 0.8), rgba(87, 82, 162, 0.8)); color: white;
@@ -82,15 +86,15 @@ h3{ font-size: $fs-xxlg;}
   &::backdrop{ background-color: rgba(0, 184, 230, 0.3);} 
 }
 .modal__body{ position: relative; height: 100%; width: 100%; padding: 50px 100px;}
-.modal__head{ display: flex; justify-content: center; width: 100%; height: 100px; font-size: $fs-xlg; }
-.modal__content{ width: 100%; height: calc(100% - 100px); margin: 0 auto; overflow-y: auto; padding: 0 50px;
+.modal__head{ display: flex; justify-content: center; width: 100%; height: 100px; font-size: $fs-xlg; padding: 0 5vw; }
+.modal__content{ width: 100%; height: calc(100% - 100px); margin: 0 auto; overflow-y: auto; padding: 0 5vw;
   h5{font-size: $fs-xlg; text-transform: uppercase; text-align: center; margin-bottom: 20px;}
   &::-webkit-scrollbar { width: 4px; }
   &::-webkit-scrollbar-thumb { background: $cyan; border-radius: 4px; }
 }
-.detail__info{ display: flex; flex-direction: row; gap: 50px; align-items: center; margin-bottom: 50px;}
+.detail__info{ margin: 0 auto; margin-bottom: 100px; display: flex; flex-direction: row; gap: 50px; align-items: center; justify-content: center;}
 .detail__thumb{ 
-  width: 100%; height: auto; overflow: hidden;
+  width: 100%; max-width: 600px; height: auto; overflow: hidden;
   img{width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
 }
 .detail__sub{ 
@@ -110,7 +114,7 @@ h3{ font-size: $fs-xxlg;}
   .media__item{ 
     width: auto; max-width: 650px; height: fit-content;
     p{ text-align: center;}
-    img{ width: 100%; height: 100%; object-fit: cover; border: 1px solid $gray;}
+    img, video{ width: 100%; height: 100%; object-fit: cover; border: 1px solid $gray;}
   }
 }
   // mediaSection style end
@@ -157,6 +161,11 @@ h3{ font-size: $fs-xxlg;}
 
   body{ font-size: 12px; }
   h3{margin: 0;}
+  // header start
+  .header__nav a{ font-size: 20px;}
+  .header__logo{ height: 20px;}
+  // heder end
+  // hero start
   .section{margin: 0 auto; padding: 5vh 5%;}
   .hero__inner {flex-direction: column; align-items: center; .hero__title{width: fit-content;}}
   .hero__info{width: 100%;}

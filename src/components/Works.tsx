@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { Work, Filter } from '../types/workData';
+import type { Work, Filter } from '../types/work';
 import { supabase } from '../lib/supabaseClient';
 import WorkModal from './WorkModal';
 

@@ -1,6 +1,6 @@
 // import type { MediaItem } from "../types/workData";
 
-import { MediaItem } from "../types/workData";
+import { MediaItem } from "../types/work";
 
 interface Props {
     className: string;
@@ -11,7 +11,8 @@ interface Props {
 
 export default function MediaSection({ className, title, description, items }: Props){
   if(!items || items.length === 0) return null; 
-  
+  const isVideo = (url: string) => /\.(mp4|webm|mov)(\?.*)?$/i.test(url);
+
   return(
       <div className={`${className} media__section`}>
         <div className="media__title">
@@ -25,7 +26,11 @@ export default function MediaSection({ className, title, description, items }: P
             return(
                 <div className="media__item" key={`${url}-${i}`}>
                     {label && <p>{label}</p>}
-                    <img src={url} alt={label ?? title} />
+                    {isVideo(url) ? (
+                        <video src={url} autoPlay loop muted playsInline />
+                        ) : (
+                        <img src={url} alt={label ?? title} />   
+                    )}
                 </div>  
             )}
         )}

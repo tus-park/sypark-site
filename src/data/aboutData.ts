@@ -1,9 +1,4 @@
-import type { Work } from './types/workData';
-import type { SkillGroup } from './types/skilsData';
-import { useState } from 'react';
-
-
-
+import type { SkillGroup } from '../types/skils';
 
 export const ability = 'Markup(웹 표준/웹 접근성), Responsive Web, Adaptive Web, Interactive animation';
 
