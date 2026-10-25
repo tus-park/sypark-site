@@ -31,7 +31,7 @@ export default function WorkModal({ work, onClose, onPrev, onNext} : Props) {
                 <div className="modal__body">
                     <div className="modal__head"><h4>{work.title}</h4></div>
                     <div className="modal__content">
-                        <div className="detail__info">
+                        <div className="detail__info media__section">
                             <div className="detail__thumb"> <img src={work.thumbnail} /> </div>
                             <dl className="detail__sub">
                                 <dt>Period :</dt>

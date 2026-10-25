@@ -32,7 +32,7 @@ export default function Hero() {
               <div key={g.label}>
                 <dt>{g.label} :</dt>
                 {g.items.map((i) => (
-                  <dd key={i}><a href="#"><Icons.Download />{i}</a></dd>
+                  <dd key={i}><a href="https://drive.google.com/file/d/1AkludR1Ar2m7kV-FJKYSferKtUo4Pk04/view?usp=drive_link" target="_blank"><Icons.Download />{i}</a></dd>
                 ))}
               </div>
             ))}
