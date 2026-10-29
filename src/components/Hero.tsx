@@ -27,16 +27,16 @@ export default function Hero() {
               GET IN TOUCH <span>↓</span>
             </p>
           </div>
-          <dl className="hero__links">
+          <div className="hero__links">
             {links.map((g) => (
-              <div key={g.label}>
+              <dl key={g.label}>
                 <dt>{g.label} :</dt>
                 {g.items.map((i) => (
                   <dd key={i}><a href="https://drive.google.com/file/d/1AkludR1Ar2m7kV-FJKYSferKtUo4Pk04/view?usp=drive_link" target="_blank"><Icons.Download />{i}</a></dd>
                 ))}
-              </div>
+              </dl>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </section>
