@@ -10,7 +10,7 @@ export default function About() {
     <section id="about" className="section">
       <div className="wrap">
         {/* profile start */}
-        <div className='about__head'><h3>ABOUT 🤔</h3></div>
+        <h3 className='about__head'>ABOUT 🤔</h3>
         <div className='about'>
           <div className='introduction'>
             <p className="about__lead">디자인과 마크업으로 아이디어를 실현하는 <br/> <span>&lsquo;박시연&rsquo;</span>입니다.</p>
@@ -36,7 +36,7 @@ export default function About() {
               </div>
               <dl className="profile__intro">
                 <dt>Introduce :</dt>
-                <dd>Lorem ipsum dolor sit amet consectetur. Metus sodales morbi aenean ultrices vitae aliquam donec.</dd>
+                <dd>디자인에서부터 서비스의 가치를 높이는 방법을 생각합니다. 웹 표준과 접근성을 지키며, 디자인 의도가 화면에 그대로 구현되도록 퍼블리싱합니다.</dd>
               </dl>
             </div>
           </div>

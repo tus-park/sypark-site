@@ -44,21 +44,19 @@ export default function Works() {
   return (
     <section id="works" className="section">
       <div className="wrap">
-        <div className="works__head">
-          <h3>WORKS 🗂</h3>
-          <div className="filter__group" role="group" aria-label="작업물 필터">
-            {filters.map((f) => (
-              <button
-                key={f}
-                type="button"
-                className={`filter${f === filter ? ' is-active' : ''}`}
-                aria-pressed={f === filter}
-                onClick={() => setFilter(f)}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
+        <h3 className="works__head">WORKS 🗂</h3>
+        <div className="filter__group" role="group" aria-label="작업물 필터">
+          {filters.map((f) => (
+            <button
+              key={f}
+              type="button"
+              className={`filter${f === filter ? ' is-active' : ''}`}
+              aria-pressed={f === filter}
+              onClick={() => setFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
         </div>
         <ul className="works__lists">
           {list.map((w) => (
