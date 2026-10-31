@@ -1,10 +1,39 @@
+import { ComponentType, SVGProps } from "react";
 import { Icons } from "../assets/Icons";
 import QRcode from '../assets/publishen.png'
 
-const links = [
-  { label: '📡 Contact', items: ['Open Talk', 'email@address.com'] },
-  { label: '🔗 Link', items: ['Github', 'Codepen'] },
-  { label: '📁 Download', items: ['Portfolio.pdf'] },
+type IconType = ComponentType<SVGProps<SVGSVGElement>>;
+
+interface LinkItem {
+  label : string;
+  href: string;
+  icon?: IconType;
+}
+interface LinkGroup {
+  title: string;
+  items: LinkItem[];
+}
+
+const links : LinkGroup[] = [
+  {
+    title: '📡 Contact',
+    items: [
+      {label: 'Open Talk', icon: Icons.TalkBubble, href: 'https://open.kakao.com/me/4syeon'},
+      {label: 'tlduspark89@gmail.com', icon: Icons.Email, href: 'tlduspark89@gmail.com'}
+    ]
+  },
+  {
+    title: '🔗 Link',
+    items: [
+      {label: 'Github', icon: Icons.Github, href: 'https://github.com/tus-park'}
+    ]
+  },
+  {
+    title: '📁 Download',
+    items: [
+      {label: 'Portfolio.pdf', icon: Icons.Download, href: 'https://drive.google.com/file/d/1AkludR1Ar2m7kV-FJKYSferKtUo4Pk04/view?usp=drive_link'}
+    ]
+  }
 ];
 
 export default function Hero() {
@@ -29,11 +58,14 @@ export default function Hero() {
           </div>
           <div className="hero__links">
             {links.map((g) => (
-              <dl key={g.label}>
-                <dt>{g.label} :</dt>
-                {g.items.map((i) => (
-                  <dd key={i}><a href="https://drive.google.com/file/d/1AkludR1Ar2m7kV-FJKYSferKtUo4Pk04/view?usp=drive_link" target="_blank"><Icons.Download />{i}</a></dd>
-                ))}
+              <dl key={g.title}>
+                <dt>{g.title} :</dt>
+                {g.items.map((i) => {
+                  const Icon = i.icon;
+                  return (
+                    <dd key={i.label}><a href={i.href} target="_blank">{ Icon && <Icon />}{i.label}</a></dd>
+                  )
+                })}
               </dl>
             ))}
           </div>

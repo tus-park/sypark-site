@@ -27,7 +27,7 @@ export default function MediaSection({ className, title, description, items }: P
                 <div className="media__item" key={`${url}-${i}`}>
                     {label && <p>{label}</p>}
                     {isVideo(url) ? (
-                        <video src={url} autoPlay loop muted playsInline />
+                        <video src={url} loop muted playsInline controls />
                         ) : (
                         <img src={url} alt={label ?? title} />   
                     )}
