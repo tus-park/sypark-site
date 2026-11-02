@@ -19,7 +19,7 @@ const links : LinkGroup[] = [
     title: '📡 Contact',
     items: [
       {label: 'Open Talk', icon: Icons.TalkBubble, href: 'https://open.kakao.com/me/4syeon'},
-      {label: 'tlduspark89@gmail.com', icon: Icons.Email, href: 'tlduspark89@gmail.com'}
+      {label: 'tlduspark89@gmail.com', icon: Icons.Email, href: 'mailto:tlduspark89@gmail.com'}
     ]
   },
   {
@@ -63,7 +63,7 @@ export default function Hero() {
                 {g.items.map((i) => {
                   const Icon = i.icon;
                   return (
-                    <dd key={i.label}><a href={i.href} target="_blank">{ Icon && <Icon />}{i.label}</a></dd>
+                    <dd key={i.label}><a href={i.href} target="_blank" rel="noopener noreferrer">{ Icon && <Icon />}{i.label}</a></dd>
                   )
                 })}
               </dl>
