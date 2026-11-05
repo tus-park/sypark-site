@@ -12,6 +12,7 @@ export interface Work {
   start_date: string;
   end_date: string;
   part: string;
+  kind: string;
   skill: string;
   screenshot: (string | MediaItem)[] | null;
   screenshot_subscript?: string | null;

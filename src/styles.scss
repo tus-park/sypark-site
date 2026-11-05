@@ -74,12 +74,13 @@ body:has(dialog[open]) {
 .filter { font: inherit; color: $ink; font-size: $fs-lg; padding: 0 2rem; margin-bottom: 5rem; border: 2px solid $ink; border-radius: 999px; background: #fff; cursor: pointer; text-transform: uppercase;
   &__group { display: flex; flex-wrap: nowrap; flex-direction: row; align-items: center; gap: 10px;  }
   &.is-active { border-color: $cyan; border-width: 2px; background: #d9f6fd; } }
-.works__lists { column-count: 4; height: 70rem; overflow-y: auto; scrollbar-width: thin; scrollbar-color: $cyan transparent;
+.works__lists { 
+  display: grid; grid-template-columns: repeat(5, 18.4%); grid-auto-flow: row; grid-auto-rows: max-content; gap: 2rem 2%; overflow: hidden; overflow-y: auto; height: 70rem; scrollbar-width: thin; scrollbar-color: $cyan transparent;
   &::-webkit-scrollbar { width: 0.4rem; }
   &::-webkit-scrollbar-thumb { background: $cyan; border-radius: 4px; }
   li{ cursor: pointer;}
 }
-.card { break-inside: avoid; margin-bottom: 1rem; border-radius: 1rem; overflow: hidden; background-color: #555; background-size: cover; background-position: center; height: clamp(10rem, 16.6667rem + 4.3403vw, 25rem);}
+.card { break-inside: avoid; aspect-ratio: 4 / 3; border-radius: 1rem; overflow: hidden; background-color: #555; background-size: cover; background-position: center; }
 .card--dark { color: #fff; padding: 2rem; }
 .card__overlay{
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; height: 100%; background: linear-gradient(rgba(0, 184, 230, 0.8), rgba(87, 82, 162, 0.8)); color: white;
@@ -124,8 +125,9 @@ body:has(dialog[open]) {
 }
 .detail__sub{ 
   width: 50%; height: 100%; 
-  dt{ font-weight: $fw-b; font-size: $fs-lg; margin-bottom: 1rem;}
-  dd{ margin-bottom: 20px;}
+  dl{ display: flex; flex-direction: row; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2rem; }
+  dt{ font-weight: $fw-b; font-size: $fs-lg; }
+  dd{ white-space: pre-line;}
 }
 
 
@@ -175,9 +177,9 @@ body:has(dialog[open]) {
   .hero__inner { flex-direction: column; align-items: center;}
   .hero__title{ width: fit-content; } 
   .hero__info{ width: 100%; }
-  .hero__links dl{ flex-wrap: wrap;}
-  .filter{margin-bottom: 2rem;}
-  .works__lists { column-count: 3; height: calc(100vh - 28rem);}
+  .hero__links dl{ flex-wrap: wrap; }
+  .filter{ margin-bottom: 2rem; }
+  .works__lists { grid-template-columns: repeat(3, 32%); height: calc(100vh - 28rem); }
 
   .modal{ width: 100vw; max-width: max-content; height: 100vh; max-height: max-content; border-radius: 0;}
   .modal__body{ padding: 6rem 5.21vw; }
@@ -197,5 +199,5 @@ body:has(dialog[open]) {
 @media (max-width: $break-mo) {
   html{ font-size: 8px; }
   .hero{ height: 100vh; }
-  .works__lists { column-count: 2; }
+  .works__lists { grid-template-columns: repeat(2, 49%); } 
 }

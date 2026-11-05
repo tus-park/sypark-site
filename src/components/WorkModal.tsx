@@ -33,14 +33,24 @@ export default function WorkModal({ work, onClose, onPrev, onNext} : Props) {
                     <div className="modal__content">
                         <div className="detail__info media__section">
                             <div className="detail__thumb"> <img src={work.thumbnail} /> </div>
-                            <dl className="detail__sub">
-                                <dt>Period :</dt>
-                                <dd> {formatYearMonth(work.start_date)} ~ {formatYearMonth(work.end_date)}</dd>
-                                <dt>Parts :</dt>
-                                <dd> {work.part} </dd>
-                                <dt>Description :</dt>
-                                <dd> {work.description} </dd>
-                            </dl>
+                            <div className="detail__sub">
+                                <dl>
+                                    <dt>&bull; Parts :</dt>
+                                    <dd> {work.part} </dd>
+                                </dl>
+                                <dl>
+                                    <dt>&bull; Kind :</dt>
+                                    <dd> {work.kind} </dd>
+                                </dl>
+                                <dl>
+                                    <dt>&bull; Period :</dt>
+                                    <dd> {formatYearMonth(work.start_date)} ~ {formatYearMonth(work.end_date)}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>&bull; Description :</dt>
+                                    <dd> {work.description} </dd>
+                                </dl>
+                            </div>
                         </div>
                         {/* 기본 정보 */}
                         
